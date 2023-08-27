@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="myMainViewModel"
+            type="com.example.mybinding.MyMainViewModel" />
+        <variable
+            name="user"
+            type="com.example.mybinding.User" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+
+        <TextView
+            android:id="@+id/user_name"
+            android:textSize="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->myMainViewModel.changeUser()}"
+            android:text="@{myMainViewModel.user.name}" />
+
+        <TextView
+            android:id="@+id/user_age"
+            android:textSize="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(myMainViewModel.user.age)}" />
+
+        <TextView
+            android:id="@+id/user_name_model"
+            android:textSize="30dp"
+            android:onClick="@{()->user.changeName()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}" />
+
+        <TextView
+            android:id="@+id/user_age_model"
+            android:textSize="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(user.age)}" />
+
+    </LinearLayout>
+</layout>
